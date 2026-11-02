@@ -1,0 +1,58 @@
+<div class="max-w-3xl mx-auto mt-10 px-4">
+    <div class="bg-white rounded-xl shadow-md p-8">
+        <h1 class="text-3xl font-bold text-blue-950 text-center mb-8">
+            Modificar personaje
+        </h1>
+
+        <form #modificarform="ngForm" class="space-y-5">
+            <div>
+                <label class="block text-sm font-semibold text-blue-950 mb-2">Serie</label>
+                <select name="selectserie" #selectserie [(ngModel)]="serie"
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+                    @for (serie of listaSerie; track serie) {
+                        <option value="{{serie.idSerie}}" [ngValue]="serie">{{serie.nombre}}</option>
+                    }
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-blue-950 mb-2">Personaje</label>
+                <select name="selectpersonaje" #selectpersonaje [(ngModel)]="personaje"
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+                    @for (personaje of listaPersonajes; track personaje) {
+                        <option value="{{personaje.idPersonaje}}" [ngValue]="personaje">{{personaje.nombre}}</option>
+                    }
+                </select>
+            </div>
+
+            <button (click)="modificarPersonaje()"
+                class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                Modificar personaje
+            </button>
+        </form>
+    </div>
+
+    @if (serie || personaje) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+            @if (serie) {
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <img src="{{serie.imagen}}" alt="{{serie.nombre}}"
+                        class="w-full h-56 object-cover">
+                    <h3 class="text-lg font-bold text-blue-950 text-center p-4">
+                        {{serie.nombre}}
+                    </h3>
+                </div>
+            }
+
+            @if (personaje) {
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <img src="{{personaje.imagen}}" alt="{{personaje.nombre}}"
+                        class="w-full h-56 object-cover">
+                    <h3 class="text-lg font-bold text-blue-950 text-center p-4">
+                        {{personaje.nombre}}
+                    </h3>
+                </div>
+            }
+        </div>
+    }
+</div>

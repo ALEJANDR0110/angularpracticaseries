@@ -1,0 +1,39 @@
+<div class="max-w-5xl mx-auto mt-10 px-4">
+    <div class="flex items-center justify-between mb-8">
+        <h1 class="text-3xl font-bold text-blue-950">
+            Personajes de {{idSerie}}
+        </h1>
+
+        <a [routerLink]="['/detallesSerie/', idSerie]"
+            class="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-5 py-2 rounded-lg transition-colors">
+            Volver a serie
+        </a>
+    </div>
+
+    @if (listaPersonajes) {
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-sky-100 text-blue-950">
+                    <tr>
+                        <th class="px-6 py-4 font-semibold">Personaje</th>
+                        <th class="px-6 py-4 font-semibold text-center">Imagen</th>
+                    </tr>
+                </thead>
+
+                <tbody class="divide-y divide-slate-200">
+                    @for (personaje of listaPersonajes; track personaje) {
+                        <tr class="hover:bg-sky-50 transition-colors">
+                            <td class="px-6 py-4 font-medium text-slate-700">
+                                {{personaje.nombre}}
+                            </td>
+                            <td class="px-6 py-4">
+                                <img src="{{personaje.imagen}}" alt="{{personaje.nombre}}"
+                                    class="w-24 h-24 object-cover rounded-lg mx-auto shadow-sm">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

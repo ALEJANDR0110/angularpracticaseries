@@ -1,0 +1,36 @@
+<div class="max-w-lg mx-auto mt-10 px-4">
+    <div class="bg-white rounded-xl shadow-md p-8">
+        <h1 class="text-3xl font-bold text-blue-950 text-center mb-8">
+            Crear Personaje
+        </h1>
+
+        <form #createform="ngForm" class="space-y-5">
+            <div>
+                <label class="block text-sm font-semibold text-blue-950 mb-2">Nombre</label>
+                <input type="text" name="cajanombre" #cajanombre
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-400">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-blue-950 mb-2">Imagen</label>
+                <input type="text" name="cajaimagen" #cajaimagen
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-400">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-blue-950 mb-2">Serie</label>
+                <select name="selectserie" #selectserie
+                    class="w-full border border-slate-300 rounded-lg px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+                    @for (serie of listaSerie; track serie) {
+                        <option value="{{serie.idSerie}}">{{serie.nombre}}</option>
+                    }
+                </select>
+            </div>
+
+            <button (click)="crearNuevoPersonaje()"
+                class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                Crear personaje
+            </button>
+        </form>
+    </div>
+</div>
