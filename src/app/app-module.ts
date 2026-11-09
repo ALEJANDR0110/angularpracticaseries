@@ -11,6 +11,7 @@ import { DetallesSerieComponent } from './components/detalles-serie-component/de
 import { PersonajesSerieComponent } from './components/personajes-serie-component/personajes-serie-component';
 import { NuevoPersonajeComponent } from './components/nuevo-personaje-component/nuevo-personaje-component';
 import { ModificarPersonajeComponent } from './components/modificar-personaje-component/modificar-personaje-component';
+import { PruebaGit } from './components/prueba-git/prueba-git';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ModificarPersonajeComponent } from './components/modificar-personaje-co
     PersonajesSerieComponent,
     NuevoPersonajeComponent,
     ModificarPersonajeComponent,
+    PruebaGit,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), ServiceSerie],
